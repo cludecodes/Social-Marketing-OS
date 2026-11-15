@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shophippy Social Media Marketing OS</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="login-screen" class="login-wrap hidden">
+  <div class="login-card">
+    <div class="brand">Shophippy</div>
+    <h1>Social Media Marketing OS</h1>
+    <p class="muted">Sign in to your command center</p>
+    <form id="login-form">
+      <input id="login-username" type="text" placeholder="Username" value="admin" required>
+      <input id="login-password" type="password" placeholder="Password" value="admin123" required>
+      <button class="btn primary block" type="submit">Sign in</button>
+    </form>
+    <div id="login-error" class="error"></div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <aside class="sidebar">
+    <div class="brand">Shophippy</div>
+    <nav id="nav"></nav>
+    <div class="sidebar-foot">
+      <span id="user-label" class="muted"></span>
+      <button class="btn ghost small" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+  <main>
+    <header class="topbar">
+      <h2 id="page-title">Overview</h2>
+      <div class="topbar-right">
+        <span id="conn-status" class="pill">offline</span>
+        <button class="btn small" id="refresh-btn">Refresh</button>
+      </div>
+    </header>
+    <section id="page"></section>
+  </main>
+</div>
+
+<div id="modal-backdrop" class="modal-backdrop hidden">
+  <div class="modal">
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn" id="modal-cancel">Cancel</button>
+      <button class="btn primary" id="modal-ok">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js"></script>
+</body>
+</html>
