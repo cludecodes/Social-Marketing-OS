@@ -4,12 +4,18 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&":
 const fmt = (s) => (s && s.length > 60 ? s.slice(0, 60) + "…" : s || "");
 const tag = (s) => `<span class="tag ${esc(s || "")}">${esc(s || "")}</span>`;
 
+function apiBase() {
+  const h = location.hostname;
+  if (h === "localhost" || h === "127.0.0.1" || h === "") return "/api/v1";
+  return "http://127.0.0.1:8000/api/v1";
+}
+
 function api(method, path, body) {
   const opts = { method, headers: {} };
   if (body !== undefined) { opts.headers["Content-Type"] = "application/json"; opts.body = JSON.stringify(body); }
   const tok = localStorage.getItem("smmo_token");
   if (tok) opts.headers["Authorization"] = "Bearer " + tok;
-  return fetch("/api/v1" + path, opts).then(async (r) => {
+  return fetch(apiBase() + path, opts).then(async (r) => {
     let data = null;
     try { data = await r.json(); } catch (e) { data = null; }
     if (r.status === 401 && !path.startsWith("/auth/")) { logout(); throw new Error("unauthorized"); }
