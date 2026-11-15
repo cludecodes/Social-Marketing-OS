@@ -1,5 +1,12 @@
 # Shophippy Social Media Marketing OS
 
+**Repo:** https://github.com/cludecodes/Social-Marketing-OS
+**Live (frontend SPA):** https://social-marketing-os.vercel.app
+
+> The Vercel deployment hosts the static SPA in `frontend/`. The FastAPI backend runs
+> locally (`python -m uvicorn app.main:app --host 127.0.0.1 --port 8000`) or on any
+> Python host; point `CORS_ORIGINS` and the SPA's API base at it when deploying both.
+
 An all-in-one social media marketing operating system: AI content engine, multi-agent
 automation, scheduling, media generation, multi-platform publishing, analytics, community
 management, and lead capture — served by a single FastAPI backend with a built-in vanilla
